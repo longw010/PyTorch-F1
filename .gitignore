@@ -2,4 +2,5 @@ __pycache__
 *.pyc
 dist/*
 build/*
-torchf1.egg-info/*
+torchf1.egg-info/
+.idea/*
