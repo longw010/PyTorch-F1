@@ -2,6 +2,6 @@ __pycache__
 *.pyc
 dist/*
 build/*
-torchf1.egg-info/
+*egg-info/
 .idea*
 .DS_Store
