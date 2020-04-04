@@ -12,7 +12,7 @@ def info_img(model):
     raise NotImplementedError
 
 def info_param(model):
-    raise NotImplementedError
+    return model.parameters()
 
 def info_flop(model):
     raise NotImplementedError
@@ -23,4 +23,4 @@ def info_mac(model):
 if __name__ == '__main__':
     import torchvision.models as models
     alexnet = models.alexnet()
-    info_str(alexnet, 2, (3,224,224))
+    print(info_param(alexnet))

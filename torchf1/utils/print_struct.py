@@ -7,7 +7,7 @@ from torch.autograd import Variable
 from collections import OrderedDict
 import numpy as np
 
-def info_str_tree(model, file=sys.stderr):
+def info_str_tree(model, file=sys.stderr, verbose=False):
     # adapted from https://github.com/pytorch/pytorch/issues/2001
     def repr(model):
         # We treat the extra repr like the sub-module, one item per line
@@ -18,8 +18,12 @@ def info_str_tree(model, file=sys.stderr):
             extra_lines = extra_repr.split('\n')
         child_lines = []
         total_params = 0
+        trainable_params = 0
+
         for key, module in model._modules.items():
-            mod_str, num_params = repr(module)
+            mod_str, num_params, trainable_params = repr(module)
+            #if model.weight.requires_grad:
+            #    print ('1')
             mod_str = _addindent(mod_str, 2)
             child_lines.append('(' + key + '): ' + mod_str)
             total_params += num_params
@@ -41,12 +45,13 @@ def info_str_tree(model, file=sys.stderr):
             main_str += ', \033[92m{:,}\033[0m params'.format(total_params)
         else:
             main_str += ', {:,} params'.format(total_params)
-        return main_str, total_params
+        return main_str, total_params, trainable_params
 
-    string, count = repr(model)
-    if file is not None:
+    string, count, trainable_count = repr(model)
+    if file is not None and verbose:
         print(string, file=file)
-    return count
+    return count, trainable_count
+
 
 def info_str_flat(model, input_size, file=sys.stderr, batch_size=1, dtypes=None, verbose=False):
     # adapted from torch summary package
@@ -157,5 +162,5 @@ def info_str_flat(model, input_size, file=sys.stderr, batch_size=1, dtypes=None,
     if file is not None:
         print(summary_str, file=file)
 
-    return summary_str, (total_params, trainable_params)
+    return total_params, trainable_params
 
