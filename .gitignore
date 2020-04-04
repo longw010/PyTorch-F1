@@ -3,4 +3,5 @@ __pycache__
 dist/*
 build/*
 torchf1.egg-info/
-.idea/*
+.idea*
+.DS_Store
