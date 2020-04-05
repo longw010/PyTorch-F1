@@ -53,7 +53,7 @@ def info_str_tree(model, file=sys.stderr, verbose=False):
     return count, trainable_count
 
 
-def info_str_flat(model, input_size, file=sys.stderr, batch_size=1, dtypes=None, verbose=False):
+def info_str_flat(model, input_size, file=sys.stderr, batch_size=1, dtypes=None, verbose=True):
     # adapted from torch summary package
     if dtypes == None:
         dtypes = [torch.FloatTensor] * len(input_size)

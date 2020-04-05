@@ -1,4 +1,4 @@
-from utils.print_struct import info_str_tree, info_str_flat
+from .apputils.print_struct import info_str_tree, info_str_flat
 
 def info_str(model, mode, input_size):
     if mode == 1:
