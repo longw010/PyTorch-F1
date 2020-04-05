@@ -1,13 +1,13 @@
 # README
 
-Functions included:
+### Functions included:
 - profile::get_inf_time (model, input_size) => get the inference time in GPU mode or CPU mode; note that for the GPU mode
 it needs to be in a synchronized way:[details](https://medium.com/@auro_227/timing-your-pytorch-code-fragments-e1a556e81f2).
 - info_str::model, mode, input_size => print out the model strucuture in a tree-based or flat view
 
 
 
-Issues to be added or fixed:
+###Issues to be added or fixed:
 
 info.py
 - [ ] trainable parameters setup for info_params in the tree-based layout: need to find the module.weight.requires_grad
