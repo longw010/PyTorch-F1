@@ -1,5 +1,11 @@
 # README
 
+Functions included:
+- profile::get_inf_time (model, input_size) => get the inference time in GPU mode or CPU mode; note that for the GPU mode
+it needs to be in a synchronized way.
+- info_str::model, mode, input_size => print out the model strucuture in a tree-based or flat view
+
+
 
 Issues to be added or fixed:
 
