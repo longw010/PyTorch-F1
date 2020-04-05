@@ -10,7 +10,7 @@ Also, when you plan to do model pruning etc, or deploy model in the edge devices
 
 The package fixed many potential issues in the 
 
-**It is mainly used for personal dev work**
+**It is mainly used for personal dev work.**
 
 ----
 ## User Guide
@@ -31,5 +31,8 @@ Currently, it is still under dev.
 <TODO> => will support pip and conda shortly.
 
 ### Examples
-After installing the package, check more details on the `examples` folders
+Examples can be found in the [examples](examples) folder.
 
+### Reporting issues
+
+Issue tracker: https://github.com/longw010/PyTorch-F1/issues
