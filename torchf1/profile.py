@@ -6,6 +6,7 @@ cuda = False
 device = torch.device('cuda' if cuda else 'cpu')
 
 def get_inf_time(model, input_size):
+    # reference: https://medium.com/@auro_227/timing-your-pytorch-code-fragments-e1a556e81f2
     if len(input_size) == 3:
         input_size = (1, input_size[0], input_size[1], input_size[2])
 
