@@ -12,7 +12,8 @@ if __name__ == '__main__':
     im_input = np.random.random(input_size)
     im_input = torch.from_numpy(im_input).float()
     im_out = imdn_model(im_input)
-    profile_macs(imdn_model, im_input)
+    macs = profile_macs(imdn_model, (im_input, im_out))
+    print (macs)
 
     """
     from torchviz import make_dot

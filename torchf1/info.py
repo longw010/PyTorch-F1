@@ -19,9 +19,6 @@ def info_param(model):
 def info_flop(model):
     raise NotImplementedError
 
-def info_mac(model):
-    raise NotImplementedError
-
 if __name__ == '__main__':
     import torchvision.models as models
     alexnet = models.alexnet()
