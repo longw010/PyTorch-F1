@@ -1,9 +1,40 @@
 import torch
 import numpy as np
 import time
+import warnings
+from .apputils.handlers import handlers
+from .apputils.trace import trace
+
 
 cuda = False
 device = torch.device('cuda' if cuda else 'cpu')
+
+
+__all__ = ['profile_macs', 'get_inf_time']
+
+
+def profile_macs(model, args=(), kwargs=None, reduction=sum):
+    results = dict()
+
+    graph = trace(model, args, kwargs)
+    for node in graph.nodes:
+        for operators, func in handlers:
+            if isinstance(operators, str):
+                operators = [operators]
+            if node.operator in operators:
+                if func is not None:
+                    results[node] = func(node)
+                break
+        else:
+            warnings.warn('No handlers found: "{}". Skipped.'.format(
+                node.operator))
+
+    if reduction is not None:
+        return reduction(results.values())
+    else:
+        return results
+
+
 
 def get_inf_time(model, input_size):
     # reference: https://medium.com/@auro_227/timing-your-pytorch-code-fragments-e1a556e81f2

@@ -1,5 +1,7 @@
 from .apputils.print_struct import info_str_tree, info_str_flat
 
+__all__ = ['info_str', 'info_param']
+
 def info_str(model, mode, input_size):
     if mode == 1:
         info_str_tree(model)
