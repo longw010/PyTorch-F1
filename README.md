@@ -19,6 +19,7 @@ The package fixed many potential issues in the
 
 - Python 3.6+
 - (Recommended) A virtualenv setup for your project
+- tested on PyTorch 1.4.0 
 
 ### Features
 - [ ] will try to address and fix the potential issues on some popular code snippets
