@@ -17,6 +17,9 @@ def prune_dry_run(model, gpu_id, input_size, batch_size):
 
     # verify if the above is consistent
 
+    # if the image shape is not changed for each inference, enable the cudnn
+    print ("torch.backends.cudnn.benchmark = True")
+    
     # try above; use separate func though
     # batch_size = 1
     print ('set batch_size = 1')
