@@ -3,6 +3,7 @@ One click pruning
 """
 
 import numpy as np
+import torch.nn as nn
 
 def prune_dry_run(model, gpu_id, input_size, batch_size):
     """
@@ -19,7 +20,7 @@ def prune_dry_run(model, gpu_id, input_size, batch_size):
 
     # if the image shape is not changed for each inference, enable the cudnn
     print ("torch.backends.cudnn.benchmark = True")
-    
+
     # try above; use separate func though
     # batch_size = 1
     print ('set batch_size = 1')
@@ -41,6 +42,18 @@ def prune_dry_run(model, gpu_id, input_size, batch_size):
         if ((i + 1) % accumulation_steps) == 0:
             optimizer.step() 
             optimizer.zero_grad() """)
+
+
+def fp16_helper(model, input):
+    # convert model to half precision
+    model.half()
+    for layer in model.modules():
+        if isinstance(layer, nn.BatchNorm2d):
+            layer.float()
+
+    # iterate over data (normally used in the data loader)
+    inputs = input.to('cuda').half()
+    return model, inputs
 
 
 def get_usable_GPU(gpu_id):
