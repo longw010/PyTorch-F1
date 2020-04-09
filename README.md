@@ -38,7 +38,7 @@ Examples can be found in the [examples](examples) folder.
 
 Issue tracker: https://github.com/longw010/PyTorch-F1/issues
 
-### Similar packages:
+### Related packages:
 - THOP: PyTorch-OpCounter 
 - PyTorch-Summary
 - Torchprofile
