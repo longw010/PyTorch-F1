@@ -1,3 +1,5 @@
+# flake8: noqa
+
 # from https://raw.githubusercontent.com/facebookresearch/fvcore/b54a5ed9ce725a5a389ec6eaeead131daacd2ec8/fvcore/nn/jit_handles.py
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
 
