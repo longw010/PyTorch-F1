@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="torchf1", # Replace with your own username
-    version="0.0.1",
+    version="0.1.0",
     author="Long Wang",
     author_email="lwang010@gmail.com",
     description="todo",
